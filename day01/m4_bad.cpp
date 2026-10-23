@@ -1,0 +1,50 @@
+#include <iostream>
+using namespace std;
+#include <string>
+int main (){
+    constexpr double kPercentScale = 100.0;
+    constexpr double kCelsiusToKelvin = 273.15;
+    const int kSecondsPerMinute = 60;
+    constexpr double kMinBusVoltageV = 24.0;
+    constexpr double kMaxObcTempC = 85.0;
+    constexpr double kMinBatteryPct =20.0;
+    string satellite_name = "ORBITAL-1";
+    char mode = 'N';
+    int timestamp_sec = 45296;
+    double bus_voltage_v = 23.1;
+    double battery_charge_pct = 18.0;
+    double battery_capacity_wh = 100.0;
+    double obc_temperature_c = 88.0;
+    double solar_panel_current_a = 0.0;
+    bool in_eclipse = true;
+    double battery_energy_wh = battery_capacity_wh * battery_charge_pct / kPercentScale;
+    double solar_power_w = bus_voltage_v * solar_panel_current_a;
+    double obc_temp_k = obc_temperature_c + kCelsiusToKelvin;
+    int pass_duration_s = 587;
+    int pass_min = pass_duration_s / kSecondsPerMinute;
+    int pass_sec = pass_duration_s % kSecondsPerMinute;
+    bool voltage_ok = bus_voltage_v >= kMinBusVoltageV;
+    bool temp_ok = obc_temperature_c <= kMaxObcTempC;
+    bool battery_ok = battery_charge_pct >= kMinBatteryPct;
+    cout << "====== ORBITAL INTELLIGENCE V0.1 ======" << endl;
+    cout << "Satellite          : " << satellite_name << endl;
+    cout << "Mode               : " << mode << endl;
+    cout << "Timestamp          : " << timestamp_sec << " s" << endl;
+    cout << "In eclipse         : " << boolalpha << in_eclipse << endl;
+    cout << "--- Power (EPS) ----" << endl;
+    cout << "Bus voltage        : " << bus_voltage_v << " V" << endl;
+    cout << "Solar current      : " << solar_panel_current_a << " A" << endl;
+    cout << "Solar power        : " << solar_power_w << " W" << endl;
+    cout << "Battery            : " << battery_charge_pct << " %" << endl;
+    cout << "Battery capacity   : " << battery_capacity_wh << " Wh" << endl;
+    cout << "Battery energy     : " << battery_energy_wh << " Wh" << endl;
+    cout << "--- Thermal (OBC) ---" << endl;
+    cout << "OBC temperature    : " << obc_temperature_c << " C = " << obc_temp_k << " K" << endl;
+    cout << "--- Ground pass ---" << endl;
+    cout << "Pass duration      : " << pass_duration_s << " s = " << pass_min << " min " << pass_sec << " s" << endl;
+    cout << "--- Checks ---" << endl;
+    cout << "voltage_ok (>=  " << kMinBusVoltageV << " V) : " << boolalpha << voltage_ok << endl;
+    cout << "temp_ok    (<=  " << kMaxObcTempC << " C) : " << boolalpha << temp_ok << endl;
+    cout << "battery_ok (>=  " << kMinBatteryPct << " %) : " << boolalpha << battery_ok << endl;
+    cout <<"========================================" << endl;
+}
