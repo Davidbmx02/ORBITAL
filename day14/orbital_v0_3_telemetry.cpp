@@ -52,6 +52,18 @@ int findReading(double arr[], int size, double target) {
     return -1;
 }
 
+void sortReadings(double arr[], int size) {
+    for(int pass = 0; pass < size; pass++) {
+        for(int i = 0; i < size - 1; i++) {
+            if(arr[i] > arr[i+1]) {
+                double temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
+            }
+        }
+    }
+}
+
 
 
 int main() {
@@ -81,6 +93,12 @@ int main() {
     if(max > 30){
         cout << "OVERHEAT ALERT" << endl;
     }
+
+    
+    sortReadings(temps,10);
+    cout << "Sorted:" << endl;
+    printReadings(temps, 10);
+    cout << endl;
 
 
 
