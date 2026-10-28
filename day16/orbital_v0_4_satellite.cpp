@@ -30,6 +30,13 @@ struct Satellite{
         }
         return false;
     }
+
+    bool isLowBattery(Satellite s) {
+        if(s.battery < 40){
+            return true;
+        }
+        return false;
+    }
 // TODO 6: main:    
     int main () {
 //    Satellite fleet[3]:  ORB-A 60 kg 88 % | ORB-B 14 kg 52 % | ORB-C 8 kg 30 %
@@ -53,8 +60,13 @@ struct Satellite{
             printSatellite(fleet[i]);
             if(isLowFuel(fleet[i])) {
             cout << " LOW FUEL" << endl;
+            }
+            if(isLowBattery(fleet[i])) {
+                cout << " LOW BATTERY" << endl;
+            }
+            
         }
-        }
+ }
 //    print the fleet again; after each low one print "  LOW FUEL"
 // Expected after burn:
 //    ORB-A | fuel: 55 kg | battery: 88 %
@@ -63,7 +75,6 @@ struct Satellite{
 //    ORB-C | fuel: 3 kg | battery: 30 %
 //      LOW FUEL
 
-    }
 
 
 // Then: git add, commit "ORBITAL V0.4: Satellite struct fleet", push (from the ORBITAL folder!)
