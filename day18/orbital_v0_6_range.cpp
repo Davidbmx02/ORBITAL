@@ -26,7 +26,7 @@ struct Satellite{
 
 // TODO 5: bool isLowFuel(Satellite s)   -> true if fuel < 10
     bool isLowFuel(Satellite s) {
-        if(s.fuel < 10){
+        if(s.fuel < 5){
             return true;
         }
         return false;
