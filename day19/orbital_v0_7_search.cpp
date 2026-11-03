@@ -73,7 +73,7 @@ struct Satellite{
                 std::cout << " LOW BATTERY\n";
             }
         }
-
+    // TODO: search by battery
     int idx = findSatellite(fleet, "ORB-D");
     if (idx != -1) {
         fleet[idx].battery = 100; // full recharge
