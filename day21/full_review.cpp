@@ -1,5 +1,6 @@
 ﻿// Day 21 - Full review: build one program with everything, little by little
 // Step 1: includes + struct Satellite
+// Day 21 - reviewed and pushed
 #include <iostream>
 #include <string>
 #include <vector>
