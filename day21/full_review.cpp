@@ -95,6 +95,9 @@ int main () {
     printSatellite(fleet[1]);
     std::cout << "Refuel done\n";
 
+    refuel(fleet[2],15);
+    printSatellite(fleet[2]);
+
     return 0;
 
 }
