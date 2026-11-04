@@ -93,6 +93,7 @@ int main () {
 
     refuel(fleet[1], 20);
     printSatellite(fleet[1]);
+    std::cout << "Refuel done\n";
 
     return 0;
 
