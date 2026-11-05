@@ -12,6 +12,10 @@ public:
     void print_status() {
         cout << name << " Battery: " << battery << endl;
     }
+
+    void charge(double amount) {
+        battery = battery + amount;
+    }
 };
 
 
