@@ -15,5 +15,11 @@ int main() {
     cout << "Rounds: " << rounds << endl;
     my_fleet.print_all();
 
+    Satellite comet("Comet", 50);
+    comet.run_command("CHARGE 30");
+    comet.print_status();
+    comet.run_command("DRAIN 45");
+    comet.print_status();
+
     return 0;
 }
