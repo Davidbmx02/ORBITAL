@@ -12,5 +12,6 @@ public:
     double get_battery() const;
     void charge(double amount);
     void print_status() const;
+    void run_command(string cmd);
 
 };
