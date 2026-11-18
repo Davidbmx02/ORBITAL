@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Satellite.h"
+#include <fstream>
 
 Satellite::Satellite(string n, double b) {
     name = n;
@@ -31,7 +32,11 @@ void Satellite::run_command(string cmd) {
     } else {
         cout << "Unknown command" << endl;
     }
-    
+}
 
+void Satellite::save_log(string filename) const {
+    ofstream log(filename, ios::app);
+    log << name << ": " << battery << endl;
+    log.close();
 }
 
