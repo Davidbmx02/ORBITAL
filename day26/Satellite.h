@@ -14,5 +14,6 @@ public:
     void print_status() const;
     void run_command(string cmd);
     void save_log(string filename) const;
+    void run_file(string filename);
 
 };

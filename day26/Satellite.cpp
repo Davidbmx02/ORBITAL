@@ -40,3 +40,13 @@ void Satellite::save_log(string filename) const {
     log.close();
 }
 
+void Satellite::run_file(string filename) {
+    ifstream file(filename);
+    string line;
+    while (getline(file, line)) {
+        run_command(line);
+    }
+    file.close();
+
+}
+
