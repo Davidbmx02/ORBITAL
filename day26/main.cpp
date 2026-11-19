@@ -21,6 +21,8 @@ int main() {
     comet.run_command("DRAIN 45");
     comet.print_status();
     comet.save_log("orbital_log.txt");
+    comet.run_file("commands.txt");
+    comet.print_status();
 
     return 0;
 }
